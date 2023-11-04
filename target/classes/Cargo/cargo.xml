@@ -8,7 +8,7 @@
 
     <!-- Domain model configuration -->
     <solutionClass>Cargo.domain.Schedule</solutionClass>
-    <entityClass>Cargo.domain.Visit</entityClass>
+    <entityClass>Cargo.domain.Recipient</entityClass>
 
     <!-- Score configuration -->
     <scoreDirectorFactory>
@@ -23,11 +23,87 @@
         <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
     </constructionHeuristic>
     <localSearch>
+        <unionMoveSelector>
+            <changeMoveSelector>
+                <cacheType>STEP</cacheType>
+                <selectionOrder>SHUFFLED</selectionOrder>
+            </changeMoveSelector>
+            <changeMoveSelector>
+                <entitySelector id="entitySelector1">
+                    <entityClass>Cargo.domain.Recipient</entityClass>
+                </entitySelector>
+                <valueSelector variableName="previousStandstill">
+                    <nearbySelection>
+                        <originEntitySelector mimicSelectorRef="entitySelector1"/>
+                        <nearbyDistanceMeterClass>Cargo.nearby.MyNearbyDistanceMeter</nearbyDistanceMeterClass>
+                        <parabolicDistributionSizeMaximum>40</parabolicDistributionSizeMaximum>
+                    </nearbySelection>
+                </valueSelector>
+            </changeMoveSelector>
+            <swapMoveSelector>
+                <entitySelector id="entitySelector2">
+                    <entityClass>Cargo.domain.Recipient</entityClass>
+                </entitySelector>
+                <secondaryEntitySelector>
+                    <entityClass>Cargo.domain.Recipient</entityClass>
+                    <nearbySelection>
+                        <originEntitySelector mimicSelectorRef="entitySelector2"/>
+                        <nearbyDistanceMeterClass>Cargo.nearby.MyNearbyDistanceMeter</nearbyDistanceMeterClass>
+                        <parabolicDistributionSizeMaximum>40</parabolicDistributionSizeMaximum>
+                    </nearbySelection>
+                </secondaryEntitySelector>
+            </swapMoveSelector>
+            <tailChainSwapMoveSelector>
+                <entitySelector id="entitySelector3"/>
+                <valueSelector variableName="previousStandstill">
+                    <nearbySelection>
+                        <originEntitySelector mimicSelectorRef="entitySelector3"/>
+                        <nearbyDistanceMeterClass>Cargo.nearby.MyNearbyDistanceMeter</nearbyDistanceMeterClass>
+                        <parabolicDistributionSizeMaximum>40</parabolicDistributionSizeMaximum>
+                    </nearbySelection>
+                </valueSelector>
+            </tailChainSwapMoveSelector>
+            <subChainChangeMoveSelector>
+                <entityClass>Cargo.domain.Recipient</entityClass>
+                <subChainSelector>
+                    <valueSelector variableName="previousStandstill"/>
+                    <maximumSubChainSize>50</maximumSubChainSize>
+                </subChainSelector>
+                <valueSelector variableName="previousStandstill"/>
+                <selectReversingMoveToo>true</selectReversingMoveToo>
+            </subChainChangeMoveSelector>
+            <subChainSwapMoveSelector>
+                <entityClass>Cargo.domain.Recipient</entityClass>
+                <subChainSelector>
+                    <valueSelector variableName="previousStandstill"></valueSelector>
+                    <maximumSubChainSize>50</maximumSubChainSize>
+                </subChainSelector>
+                <selectReversingMoveToo>true</selectReversingMoveToo>
+            </subChainSwapMoveSelector>
+        </unionMoveSelector>
+
+<!--        <acceptor>-->
+<!--            <entityTabuSize>7</entityTabuSize>-->
+<!--        </acceptor>-->
+<!--        <forager>-->
+<!--            <acceptedCountLimit>1000</acceptedCountLimit>-->
+<!--        </forager>-->
+
+<!--        <acceptor>-->
+<!--            <entityTabuSize>7</entityTabuSize>-->
+<!--            <simulatedAnnealingStartingTemperature>1000hard/1000medium/1000soft</simulatedAnnealingStartingTemperature>-->
+<!--        </acceptor>-->
+<!--        <forager>-->
+<!--            <acceptedCountLimit>100</acceptedCountLimit>-->
+<!--        </forager>-->
+
         <acceptor>
             <entityTabuSize>7</entityTabuSize>
         </acceptor>
         <forager>
             <acceptedCountLimit>1000</acceptedCountLimit>
+            <finalistPodiumType>STRATEGIC_OSCILLATION</finalistPodiumType>
         </forager>
+
     </localSearch>
 </solver>

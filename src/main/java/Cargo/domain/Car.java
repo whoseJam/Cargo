@@ -6,7 +6,6 @@ public class Car implements Standstill {
     private int id;
     private double capacity;
     private Location startLocation;
-    private boolean dummy = false;
     private Color color = Color.BLACK;
 
     @Override
@@ -15,7 +14,6 @@ public class Car implements Standstill {
     }
 
     public Car() {
-        dummy = true;
     }
 
     public Car(int id, int capacity, Location startLocation) {
@@ -34,10 +32,6 @@ public class Car implements Standstill {
 
     public double getCapacity() {
         return capacity;
-    }
-
-    public boolean isDummy() {
-        return dummy;
     }
 
     @Override

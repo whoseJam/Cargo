@@ -2,18 +2,16 @@ package Cargo.app;
 
 import Cargo.domain.Car;
 import Cargo.domain.Location;
+import Cargo.domain.Recipient;
 import Cargo.domain.Schedule;
 import Cargo.domain.Standstill;
-import Cargo.domain.Visit;
-import com.sun.marlin.DCollinearSimplifier;
+import Cargo.domain.Storage;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
-import javax.swing.plaf.IconUIResource;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Painter {
@@ -23,7 +21,7 @@ public class Painter {
     private double maxLongitude;
 
     private Location realLocation(Canvas canvas, Location location) {
-        double margin = 25;
+        double margin = 75;
         double dx = location.getLatitude() - minLatitude;
         double tx = maxLatitude - minLatitude;
         double nx = dx / tx * (canvas.getWidth() - margin * 2) + margin;
@@ -74,23 +72,32 @@ public class Painter {
 
     private void paintPaths(Canvas canvas, GraphicsContext gc, Schedule solution) {
         HashMap<Standstill, Standstill> edges = new HashMap<>();
-        for (Visit visit : solution.getVisits()) {
-            Standstill previous = visit.getPreviousStandstill();
+        for (Recipient recipient : solution.getRecipients()) {
+            Standstill previous = recipient.getPreviousStandstill();
             if (previous == null) continue;
             Location previousLocation = previous.getLocation();
             if (previousLocation == null) continue;
-            Location currentLocation = visit.getLocation();
+            Location currentLocation = recipient.getLocation();
             if (currentLocation == null) continue;
-            edges.put(previous, visit);
+            edges.put(previous, recipient);
         }
         for (Car car : solution.getCars()) {
+            int pathLength = 0;
             Standstill current = car;
             gc.setStroke(car.getColor());
             while (edges.containsKey(current)) {
-                Standstill next = edges.get(current);
-                paintPath(canvas, gc, current.getLocation(), next.getLocation());
+                Recipient next = (Recipient) edges.get(current);
+                if (current instanceof Car || ((Recipient) current).getFrom() != next.getFrom()) {
+                    Storage storage = next.getFrom();
+                    paintPath(canvas, gc, current.getLocation(), storage.getLocation());
+                    paintPath(canvas, gc, storage.getLocation(), next.getLocation());
+                } else {
+                    paintPath(canvas, gc, current.getLocation(), next.getLocation());
+                }
                 current = next;
+                pathLength++;
             }
+            System.out.println("path length=" + pathLength);
         }
     }
 
@@ -101,20 +108,25 @@ public class Painter {
 
         HashMap<Location, Integer> locations = new HashMap<>();
         for (Car car : solution.getCars()) {
-            if (car.isDummy()) continue;
             Location current = car.getLocation();
             if (!locations.containsKey(current))
                 locations.put(current, 0);
             locations.put(current,
                 locations.get(current) | 1);
         }
-        for (Visit visit: solution.getVisits()) {
-            Location current = visit.getLocation();
+        for (Storage storage : solution.getStorages()) {
+            Location current = storage.getLocation();
             if (!locations.containsKey(current))
                 locations.put(current, 0);
-            int k = (visit.getSize() > 0) ? 1 : 2;
             locations.put(current,
-                locations.get(current) | (1<<k));
+                locations.get(current) | (1<<1));
+        }
+        for (Recipient recipient : solution.getRecipients()) {
+            Location current = recipient.getLocation();
+            if (!locations.containsKey(current))
+                locations.put(current, 0);
+            locations.put(current,
+                locations.get(current) | (1<<2));
         }
 
         int i = 0;

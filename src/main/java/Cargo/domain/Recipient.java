@@ -5,16 +5,21 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 import org.optaplanner.core.api.domain.variable.PlanningVariableGraphType;
 
 @PlanningEntity
-public class Visit implements Standstill {
+public class Recipient implements Standstill {
     private double size;
     private Location location;
-    @PlanningVariable(graphType = PlanningVariableGraphType.CHAINED)
+    @PlanningVariable(
+        valueRangeProviderRefs = {"carProvider", "recipientProvider"},
+        graphType = PlanningVariableGraphType.CHAINED)
     private Standstill previousStandstill;
 
-    public Visit() {
+    @PlanningVariable
+    private Storage from;
+
+    public Recipient() {
     }
 
-    public Visit(double size, Location location) {
+    public Recipient(double size, Location location) {
         this.size = size;
         this.location = location;
     }
@@ -30,6 +35,10 @@ public class Visit implements Standstill {
 
     public double getSize() {
         return size;
+    }
+
+    public Storage getFrom() {
+        return from;
     }
 
     @Override

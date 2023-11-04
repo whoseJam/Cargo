@@ -2,10 +2,9 @@ package Cargo.score;
 
 import Cargo.domain.Car;
 import Cargo.domain.Location;
+import Cargo.domain.Recipient;
 import Cargo.domain.Schedule;
 import Cargo.domain.Standstill;
-import Cargo.domain.Visit;
-import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScore;
 import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
 import org.optaplanner.core.api.score.calculator.EasyScoreCalculator;
 
@@ -20,9 +19,9 @@ public class ScoreCalculator
     public HardMediumSoftLongScore calculateScore(Schedule solution) {
         HardMediumSoftLongScore score = HardMediumSoftLongScore.of(0, 0, 0);
         Map<Standstill, Standstill> edges = new HashMap<>();
-        for (Visit visit : solution.getVisits()) {
-            Standstill previous = visit.getPreviousStandstill();
-            if (previous != null) edges.put(previous, visit);
+        for (Recipient recipient : solution.getRecipients()) {
+            Standstill previous = recipient.getPreviousStandstill();
+            if (previous != null) edges.put(previous, recipient);
         }
         long maxDist = 0;
         for (Car car : solution.getCars()) {
@@ -35,11 +34,8 @@ public class ScoreCalculator
                 cur = next;
             }
             HardMediumSoftLongScore result;
-            if (car.isDummy()) score = score.add(calculateDummyCarScore(path));
-            else {
-                score = score.add(result = calculateCarScore(path));
-                maxDist = Math.max(maxDist, result.mediumScore());
-            }
+            score = score.add(result = calculateCarScore(path));
+            maxDist = Math.max(maxDist, result.mediumScore());
         }
         return HardMediumSoftLongScore.of(
             score.hardScore(),
@@ -48,38 +44,34 @@ public class ScoreCalculator
         );
     }
 
-    public HardMediumSoftLongScore calculateDummyCarScore(List<Standstill> path) {
-        int notSendTarget = 0;
-        for (int i = 1; i < path.size(); i++) {
-            Visit visit = (Visit) path.get(i);
-            if (visit.getSize() < 0) notSendTarget += visit.getSize() * 100;
-        }
-        return HardMediumSoftLongScore.of(notSendTarget, 0, 0);
-    }
-
     public HardMediumSoftLongScore calculateCarScore(List<Standstill> path) {
         double load = 0;
         int correct = 0;
-        double oil = 0;
         double dist = 0;
         Car car = (Car) path.get(0);
         for (int i = 1; i < path.size(); i++) {
             Location lastLocation = path.get(i - 1).getLocation();
             Location nowLocation = path.get(i).getLocation();
-            dist += lastLocation.getDistanceTo(nowLocation);
-            oil += load * lastLocation.getDistanceTo(nowLocation);
-            Visit now = (Visit) path.get(i);
-            load += now.getSize();
-            if (now.getSize() > 0) {
+
+            Recipient now = (Recipient) path.get(i);
+            if (i == 1 || ((Recipient) path.get(i - 1)).getFrom() != now.getFrom()) {
+                Location storage = now.getFrom().getLocation();
+                dist += lastLocation.getDistanceTo(storage);
+                dist += storage.getDistanceTo(nowLocation);
+                int j = i;
+                while (j + 1 < path.size()) {
+                    Recipient next = (Recipient) path.get(j + 1);
+                    if (now.getFrom() == next.getFrom()) j++;
+                    else break;
+                }
+                for (int k = i; k <= j; k++) load += ((Recipient) path.get(k)).getSize();
                 correct += Math.max(load - car.getCapacity(), 0);
-                load = Math.min(load, car.getCapacity());
             } else {
-                correct += Math.max(-load, 0);
-                load = Math.max(load, 0);
+                dist += lastLocation.getDistanceTo(nowLocation);
             }
+            load -= now.getSize();
         }
         dist *= 1000000;
-        oil = 0;
-        return HardMediumSoftLongScore.of(-correct, (int) dist, (int) -oil);
+        return HardMediumSoftLongScore.of(-correct, (int) dist, (int) -dist);
     }
 }
