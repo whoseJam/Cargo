@@ -5,6 +5,7 @@ import Cargo.domain.Location;
 import Cargo.domain.Recipient;
 import Cargo.domain.Schedule;
 import Cargo.domain.Storage;
+import Cargo.score.ScoreCalculator;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,6 +14,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
+import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScore;
+import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.core.api.solver.SolverManager;
@@ -47,6 +50,7 @@ public class Window extends Application {
     }
 
     private void paint(Schedule schedule) {
+        HardMediumSoftLongScore score = new ScoreCalculator().calculateScore(schedule);
         new Painter().paint(canvas, schedule);
         System.out.println(schedule);
     }

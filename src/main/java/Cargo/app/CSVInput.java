@@ -42,7 +42,7 @@ public class CSVInput {
                 double size = Double.parseDouble(records[6]);
                 double latitude = Double.parseDouble(records[7]);
                 double longitude = Double.parseDouble(records[8]);
-                if (longitude >= -85) continue;
+//                if (longitude >= -85) continue;
 
                 String locationName = records[1];
                 Location location = new Location(locationName, latitude, longitude);
@@ -52,9 +52,9 @@ public class CSVInput {
                 System.out.println("skip this data");
             }
         }
-        cars.add(new Car(1, 10, storages.get(0).getLocation()));
-        cars.add(new Car(2, 10, storages.get(1).getLocation()));
-        cars.add(new Car(3, 10, storages.get(2).getLocation()));
+        cars.add(new Car(1, 100, storages.get(0).getLocation()));
+        cars.add(new Car(2, 100, storages.get(1).getLocation()));
+        cars.add(new Car(3, 100, storages.get(2).getLocation()));
         cars.get(0).setColor(Color.FIREBRICK);
         cars.get(1).setColor(Color.AZURE);
         cars.get(2).setColor(Color.BLANCHEDALMOND);
