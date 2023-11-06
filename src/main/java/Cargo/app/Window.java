@@ -43,16 +43,11 @@ public class Window extends Application {
         return problems.get(id);
     }
 
-    private void reset(Canvas canvas, Color color) {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(color);
-        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-    }
-
-    private void paint(Schedule schedule) {
+    private void update(Schedule schedule) {
         HardMediumSoftLongScore score = new ScoreCalculator().calculateScore(schedule);
         new Painter().paint(canvas, schedule);
-        System.out.println(schedule);
+        System.out.println(schedule.toJson());
+        System.out.println(score);
     }
 
     private void solve() {
@@ -60,33 +55,11 @@ public class Window extends Application {
         SolverManager<Schedule, Long> solverManager = SolverManager.create(
             solverConfig, new SolverManagerConfig());
 
-//        List<Location> locations = new ArrayList<>();
-//        List<Recipient> recipients = new ArrayList<>();
-//        List<Storage> storages = new ArrayList<>();
-//        locations.add(new Location("北京", 100, 70));
-//        locations.add(new Location("上海", 80, 200));
-//        locations.add(new Location("天津", 200, 130));
-//        locations.add(new Location("深圳", 200, 210));
-//        locations.add(new Location("重庆物流点", 50, 50));
-//        locations.add(new Location("云南物流点", 200, 150));
-//        storages.add(new Storage(50, locations.get(0)));
-//        storages.add(new Storage(50, locations.get(1)));
-//        storages.add(new Storage(50, locations.get(2)));
-//        storages.add(new Storage(50, locations.get(3)));
-//        for (int i = 1; i <= 5; i++) recipients.add(new Recipient(10, locations.get(4)));
-//        for (int i = 1; i <= 5; i++) recipients.add(new Recipient(10, locations.get(5)));
-//
-//        List<Car> cars = new ArrayList<>();
-//        cars.add(new Car(1, 20, locations.get(0)));
-//        cars.add(new Car(2, 20, locations.get(3)));
-//        cars.get(0).setColor(Color.TEAL);
-//        cars.get(1).setColor(Color.LAVENDER);
-
-//        Schedule problem = new Schedule(cars, recipients, storages);
         try {
-            Schedule problem = CSVInput.input("./src/testdata/testdata.csv");
+            // Schedule problem = CSVInput.input("./src/testdata/testdata.csv");
+            Schedule problem = new DataMaker().data(200, 4, 5, 500);
             putProblemById(1L, problem);
-            solverManager.solveAndListen(1L, this::getProblemById, this::paint);
+            solverManager.solveAndListen(1L, this::getProblemById, this::update);
         } catch (Exception e) {
             System.out.println("Error : " + e);
         }
@@ -102,7 +75,8 @@ public class Window extends Application {
 
         canvas = new Canvas(1200, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        reset(canvas, Color.GRAY);
+        gc.setFill(Color.GREY);
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root, 1200, 600));

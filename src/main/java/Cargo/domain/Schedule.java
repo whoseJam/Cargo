@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import org.json.JSONObject;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
@@ -67,34 +68,86 @@ public class Schedule {
     @Override
     public String toString() {
         return new ScoreCalculator().calculateScore(this).toString();
-//        StringBuilder builder = new StringBuilder();
-//        Map<Standstill, Standstill> edges = new HashMap<>();
-//        for (Recipient recipient : recipients) {
-//            Standstill previous = recipient.getPreviousStandstill();
-//            if (previous != null) edges.put(previous, recipient);
-//            System.out.println("current=" + recipient.toString() + " previous=" + previous.toString());
-//        }
-//        for (Car car : cars) {
-//            Standstill cur = car;
-//            if (car.isDummy()) continue;
-//            List<Standstill> path = new ArrayList<>();
-//            path.add(cur);
-//            double dist = 0;
-//            while (edges.containsKey(cur)) {
-//                Standstill next = edges.get(cur);
-//                path.add(next);
-//                dist += cur.getLocation().getDistanceTo(next.getLocation());
-//                cur = next;
-//            }
-//            builder.append(car.toString());
-//            for (int l = 1, r; l < path.size(); l = r + 1) {
-//                Standstill now = path.get(r = l);
-//                builder.append(now.getLocation().toString());
-//                if (r + 1 < path.size()) builder.append(" -> ");
-//            }
-//            builder.append(" dist = " + ((int) dist));
-//            builder.append("\n");
-//        }
-//        return new String(builder);
+    }
+
+    private JSONObject toJson(Standstill next, int load) {
+        JSONObject ans = new JSONObject();
+        ans.put("location", next.getLocation().getName());
+        ans.put("latitude", next.getLocation().getLatitude());
+        ans.put("longitude", next.getLocation().getLongitude());
+        ans.put("load", load);
+        return ans;
+    }
+
+    private JSONObject toJson(Standstill next) {
+        JSONObject ans = new JSONObject();
+        ans.put("location", next.getLocation().getName());
+        ans.put("latitude", next.getLocation().getLatitude());
+        ans.put("longitude", next.getLocation().getLongitude());
+        if (next instanceof Recipient) {
+            Recipient rep = (Recipient) next;
+            ans.put("drop", rep.getSize());
+        }
+        return ans;
+    }
+
+    private JSONObject toJson(List<Standstill> path) {
+        Car car = (Car) path.get(0);
+        List<JSONObject> points = new ArrayList<>();
+        points.add(toJson(car));
+        for (int i = 1; i < path.size(); i++) {
+            Recipient now = (Recipient) path.get(i);
+            if (i == 1 || ((Recipient) path.get(i - 1)).getFrom() != now.getFrom()) {
+                int j = i;
+                while (j + 1 < path.size()) {
+                    Recipient next = (Recipient) path.get(j + 1);
+                    if (now.getFrom() == next.getFrom()) j++;
+                    else break;
+
+                }
+                int load = 0;
+                for (int k = i; k <= j; k++) load += ((Recipient) path.get(k)).getSize();
+                points.add(toJson(now.getFrom(), load));
+                points.add(toJson(now));
+            } else {
+                points.add(toJson(now));
+            }
+        }
+        JSONObject ans = new JSONObject();
+        ans.put("car_id", car.getId());
+        ans.put("path", points.toArray());
+        return ans;
+    }
+
+    public JSONObject toJson() {
+        HashMap<Standstill, Standstill> edges = new HashMap<>();
+        for (Recipient recipient : recipients) {
+            Standstill previous = recipient.getPreviousStandstill();
+            if (previous == null) continue;
+            Location previousLocation = previous.getLocation();
+            if (previousLocation == null) continue;
+            Location currentLocation = recipient.getLocation();
+            if (currentLocation == null) continue;
+            edges.put(previous, recipient);
+        }
+
+        List<JSONObject> carList = new ArrayList<>();
+        for (Car car : cars) {
+            Standstill cur = car;
+            List<Standstill> path = new ArrayList<>();
+            path.add(cur);
+            while (edges.containsKey(cur)) {
+                Standstill next = edges.get(cur);
+                path.add(next);
+                cur = next;
+            }
+
+            JSONObject ans = toJson(path);
+            carList.add(ans);
+        }
+
+        JSONObject ans = new JSONObject();
+        ans.put("cars", carList.toArray());
+        return ans;
     }
 }

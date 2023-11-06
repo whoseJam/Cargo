@@ -43,7 +43,7 @@ public class Painter {
         }
         if ((type & (1 << 1)) != 0) {
             double r = 6;
-            gc.setFill(Color.GAINSBORO);
+            gc.setFill(Color.BROWN);
             gc.fillArc(
                 location.getLatitude() - r / 2,
                 location.getLongitude() - r / 2,
@@ -82,7 +82,6 @@ public class Painter {
             edges.put(previous, recipient);
         }
         for (Car car : solution.getCars()) {
-            int pathLength = 0;
             Standstill current = car;
             gc.setStroke(car.getColor());
             while (edges.containsKey(current)) {
@@ -95,9 +94,7 @@ public class Painter {
                     paintPath(canvas, gc, current.getLocation(), next.getLocation());
                 }
                 current = next;
-                pathLength++;
             }
-            System.out.println("path length=" + pathLength);
         }
     }
 
@@ -142,7 +139,6 @@ public class Painter {
                 maxLongitude = Math.max(maxLongitude, location.getLongitude());
             }
         }
-        System.out.println("Longitude=" + minLongitude+ " , " + maxLongitude);
         for (Map.Entry<Location, Integer> entry : locations.entrySet()) {
             paintLocation(canvas, gc, entry.getKey(), entry.getValue());
         }

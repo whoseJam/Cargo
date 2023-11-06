@@ -22,6 +22,10 @@ public class Car implements Standstill {
         this.startLocation = startLocation;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Color getColor() {
         return color;
     }
