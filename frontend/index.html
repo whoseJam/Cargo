@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <script>
+        let cnt = 0, carId = 0;
+        function randLocation() {
+            return {
+                latitude: Math.random() * 100,
+                longitude: Math.random() * 100,
+                name: "loc." + (++cnt)
+            }
+        }
+        function randRecipient() {
+            return {
+                size: Math.random() * 3,
+                location: randLocation()
+            }
+        }
+        function randRecipients(n) {
+            let recipients = [];
+            for (let i = 1; i <= n; i++)
+                recipients.push(randRecipient());
+            return recipients;
+        }
+        function randCar() {
+            return {
+                id: (++carId),
+                capacity: 50,
+                location: randLocation(),
+            }
+        }
+        function randCars(n) {
+            let cars = [];
+            for (let i = 1; i <= n; i++)
+                cars.push(randCar());
+            return cars;
+        }
+        function randStorage() {
+            return {
+                size: 50000,
+                location: randLocation()
+            }
+        }
+        function randStorages(n) {
+            let storages = [];
+            for (let i = 1; i <= n; i++)
+                storages.push(randStorage());
+            return storages;
+        }
+
+        $("#btn").on("click", function () {
+            let data = {
+                cars: randCars(2),
+                storages: randStorages(3),
+                recipients: randRecipients(6),
+            }
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8080/Cargo/solve",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json',
+                success: function (res) {
+                    console.log(res);
+                },
+            });
+        });
+    </script>
+</body>
+</html>

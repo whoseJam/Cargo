@@ -3,7 +3,9 @@ package Cargo.domain;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 import org.optaplanner.core.api.domain.variable.PlanningVariableGraphType;
+import org.springframework.stereotype.Component;
 
+@Component
 @PlanningEntity
 public class Recipient implements Standstill {
     private double size;

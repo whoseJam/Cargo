@@ -22,6 +22,7 @@ import org.optaplanner.core.api.solver.SolverManager;
 import org.optaplanner.core.config.solver.SolverConfig;
 import org.optaplanner.core.config.solver.SolverManagerConfig;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,10 +55,9 @@ public class Window extends Application {
         SolverConfig solverConfig = SolverConfig.createFromXmlResource("Cargo/cargo.xml");
         SolverManager<Schedule, Long> solverManager = SolverManager.create(
             solverConfig, new SolverManagerConfig());
-
         try {
             // Schedule problem = CSVInput.input("./src/testdata/testdata.csv");
-            Schedule problem = new DataMaker().data(200, 4, 5, 500);
+            Schedule problem = new DataMaker().data(20, 2, 3, 20);
             putProblemById(1L, problem);
             solverManager.solveAndListen(1L, this::getProblemById, this::update);
         } catch (Exception e) {

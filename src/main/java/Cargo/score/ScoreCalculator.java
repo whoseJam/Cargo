@@ -56,6 +56,10 @@ public class ScoreCalculator
             Recipient now = (Recipient) path.get(i);
             if (i == 1 || ((Recipient) path.get(i - 1)).getFrom() != now.getFrom()) {
                 Location storage = now.getFrom().getLocation();
+                if (lastLocation == null) {
+                    System.out.println(path.get(i - 1));
+                    System.out.println(path.get(i));
+                }
                 dist += lastLocation.getDistanceTo(storage);
                 dist += storage.getDistanceTo(nowLocation);
                 int j = i;

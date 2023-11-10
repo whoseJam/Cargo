@@ -1,5 +1,8 @@
 package Cargo.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Storage implements Standstill {
     private double size;
     private Location location;

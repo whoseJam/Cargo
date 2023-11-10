@@ -83,3 +83,6 @@ try {
 
 ![image-20231104111106619](README\image-20231104111106619.png)
 
+# 简陋的前端
+
+![image-20231110160932089](C:\Users\27670\Project\Cargo\README\image-20231110160932089.png)

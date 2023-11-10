@@ -1,9 +1,15 @@
 package Cargo.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Location {
     private String name;
     private double latitude;
     private double longitude;
+
+    public Location() {
+    }
 
     public Location(String name, double latitude, double longitude) {
         this.name = name;
