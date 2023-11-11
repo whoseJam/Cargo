@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import net.minidev.json.annotate.JsonIgnore;
 import org.json.JSONObject;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 @Component
 @PlanningSolution
@@ -43,6 +45,8 @@ public class Schedule {
 
     @PlanningScore
     private HardMediumSoftLongScore score;
+
+    public UUID id;
 
     public Schedule() {
     }

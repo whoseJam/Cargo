@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <p id="display"></p>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
@@ -57,20 +58,38 @@
 
         $("#btn").on("click", function () {
             let data = {
-                cars: randCars(2),
+                cars: randCars(4),
                 storages: randStorages(3),
-                recipients: randRecipients(6),
+                recipients: randRecipients(100),
             }
             $.ajax({
-                type: "POST",
                 url: "http://127.0.0.1:8080/Cargo/solve",
                 data: JSON.stringify(data),
-                dataType: "json",
-                contentType: 'application/json',
-                success: function (res) {
-                    console.log(res);
-                },
-            });
+                contentType: "application/json",
+                type: "POST",
+                success: function(problemId) {
+                    console.log("result=", problemId);
+                    let totalTime = 0;
+                    setTimeout(function repeat() {
+                        console.log("do repeat");
+                        totalTime += 20;
+                        if (totalTime >= 500000) return;
+                        $.ajax({
+                            url: "http://127.0.0.1:8080/Cargo/getAns",
+                            data: problemId,
+                            contentType: "text/plain",
+                            type: "POST",
+                            success: function(solution) {
+                                $("#display").text(String(solution));
+                            },
+                            error: function(msg) {
+                                console.log("error=", msg);
+                            }
+                        })
+                        setTimeout(repeat, 20);
+                    }, 20)
+                }
+            })
         });
     </script>
 </body>
