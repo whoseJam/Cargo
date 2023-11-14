@@ -38,11 +38,11 @@ def stopTask(problemId):
     return res["message"]
 
 if __name__ == "__main__":
-    problemId = launchTask(makeData(3, 3, 100))
+    problemId = launchTask(makeData(3, 3, 10))
     print("problemId =", problemId)
     try:
         print("start to solve problem")
-        for i in range(50):
+        for i in range(10):
             time.sleep(1)
             solution = querySolution(problemId)
             print("iter =", i, "score =", solution["hard_score"], solution["medium_score"], solution["soft_score"])
