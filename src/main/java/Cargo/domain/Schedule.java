@@ -16,6 +16,8 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScore;
 import org.optaplanner.core.api.score.buildin.hardmediumsoftlong.HardMediumSoftLongScore;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.optaplanner.core.api.solver.Solver;
+import org.optaplanner.core.api.solver.SolverStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -94,6 +96,7 @@ public class Schedule {
         if (next instanceof Recipient) {
             Recipient rep = (Recipient) next;
             ans.put("drop", rep.getSize());
+            ans.put("rep_id", rep.getId());
         }
         return ans;
     }
@@ -155,6 +158,10 @@ public class Schedule {
 
         JSONObject ans = new JSONObject();
         ans.put("cars", carList.toArray());
+        HardMediumSoftLongScore score =  new ScoreCalculator().calculateScore(this);
+        ans.put("hard_score", score.hardScore());
+        ans.put("medium_score", score.mediumScore());
+        ans.put("soft_score", score.softScore());
         return ans;
     }
 }

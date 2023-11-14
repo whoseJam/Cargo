@@ -10,7 +10,7 @@
 <body>
     <button id="btn">点击</button>
     <script>
-        let cnt = 0, carId = 0;
+        let cnt = 0, carId = 0, repId = 0;
         function randLocation() {
             return {
                 latitude: Math.random() * 100,
@@ -20,6 +20,7 @@
         }
         function randRecipient() {
             return {
+                id: ++repId,
                 size: Math.random() * 3,
                 location: randLocation()
             }

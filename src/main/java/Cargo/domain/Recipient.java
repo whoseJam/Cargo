@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @PlanningEntity
 public class Recipient implements Standstill {
+    private int id;
     private double size;
     private Location location;
     @PlanningVariable(
@@ -41,6 +42,10 @@ public class Recipient implements Standstill {
 
     public Storage getFrom() {
         return from;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
