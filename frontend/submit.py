@@ -3,7 +3,7 @@ from datamaker import makeData
 import time
 import json
 
-BASEURL = "http://159.75.205.159:20011"
+BASEURL = "http://127.0.0.1:8081"
 
 def launchTask(data):
     url = BASEURL + "/cargo/solve/async"
