@@ -1,128 +1,127 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="CargoPlan:jar">
+  <artifact name="CargoPlan:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/CargoPlan_jar</output-path>
-    <root id="archive" name="CargoPlan.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/META-INF/MANIFEST.MF" />
+    <root id="root">
+      <element id="archive" name="CargoPlan.jar">
+        <element id="module-output" name="CargoPlan" />
       </element>
-      <element id="module-output" name="CargoPlan" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-base/8.44.0.Final/drools-base-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/eclipse/angus/angus-activation/2.0.0/angus-activation-2.0.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-wiring-api/8.44.0.Final/drools-wiring-api-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-mvel-compiler/8.44.0.Final/drools-mvel-compiler-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-core/4.0.6/spring-data-rest-core-4.0.6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-model-codegen/8.44.0.Final/drools-model-codegen-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-websocket/3.0.7/spring-boot-starter-websocket-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kie/kie-util-maven-support/8.44.0.Final/kie-util-maven-support-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-drl-parser/8.44.0.Final/drools-drl-parser-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/3.0.7/spring-boot-starter-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/micrometer/micrometer-observation/1.10.7/micrometer-observation-1.10.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core/9.44.0.Final/optaplanner-core-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-drl-extensions/8.44.0.Final/drools-drl-extensions-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-ecj/8.44.0.Final/drools-ecj-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.8/tomcat-embed-websocket-10.1.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-compiler/8.44.0.Final/drools-compiler-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kie/kie-memory-compiler/8.44.0.Final/kie-memory-compiler-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/6.0.9/spring-webmvc-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/11/javafx-fxml-11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.15/commons-codec-1.15.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-spring-boot-starter/9.44.0.Final/optaplanner-spring-boot-starter-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-persistence-common/9.44.0.Final/optaplanner-persistence-common-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/3.0.7/spring-boot-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.4.7/logback-classic-1.4.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-core/6.0.9/spring-core-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-tx/6.0.9/spring-tx-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-drl-ast/8.44.0.Final/drools-drl-ast-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kie/kie-api/8.44.0.Final/kie-api-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/4.0.2/jaxb-runtime-4.0.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kie/kie-util-xml/8.44.0.Final/kie-util-xml-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/minidev/json-smart/2.4.11/json-smart-2.4.11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-core-impl/9.44.0.Final/optaplanner-core-impl-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-commands/8.44.0.Final/drools-commands-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-kiesession/8.44.0.Final/drools-kiesession-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/minidev/accessors-smart/2.4.11/accessors-smart-2.4.11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kie/kie-internal/8.44.0.Final/kie-internal-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-codegen-common/8.44.0.Final/drools-codegen-common-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/plugin/spring-plugin-core/3.0.0/spring-plugin-core-3.0.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/11/javafx-base-11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-web/6.0.9/spring-web-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.0.9/spring-beans-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/11/javafx-controls-11-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-constraint-streams-bavet/9.44.0.Final/optaplanner-constraint-streams-bavet-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-jcl/6.0.9/spring-jcl-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-util/8.44.0.Final/drools-util-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/opencsv/opencsv/4.1/opencsv-4.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-json/3.0.7/spring-boot-starter-json-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/3.0.7/spring-boot-autoconfigure-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.14.3/jackson-annotations-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/10.1.8/tomcat-embed-core-10.1.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-canonical-model/8.44.0.Final/drools-canonical-model-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/11/javafx-controls-11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-text/1.1/commons-text-1.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-wiring-static/8.44.0.Final/drools-wiring-static-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.14.3/jackson-core-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.24.2/javaparser-core-3.24.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-to-slf4j/2.19.0/log4j-to-slf4j-2.19.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-core/4.0.2/jaxb-core-4.0.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-alphanetwork-compiler/8.44.0.Final/drools-alphanetwork-compiler-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-expression/6.0.9/spring-expression-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-core/8.44.0.Final/drools-core-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.33/snakeyaml-1.33.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-messaging/6.0.9/spring-messaging-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-wiring-dynamic/8.44.0.Final/drools-wiring-dynamic-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.4.7/logback-core-1.4.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/micrometer/micrometer-core/1.10.7/micrometer-core-1.10.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-aop/6.0.9/spring-aop-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/3.0.7/spring-boot-starter-logging-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/11/javafx-graphics-11-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/11/javafx-graphics-11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/3.0.7/spring-boot-starter-web-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-engine/8.44.0.Final/drools-engine-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.3/asm-9.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/4.0.2/txw2-4.0.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-io/8.44.0.Final/drools-io-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.14.3/jackson-datatype-jdk8-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-tomcat/3.0.7/spring-boot-starter-tomcat-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.14.3/jackson-databind-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-context/6.0.9/spring-context-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.33.0/ecj-3.33.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-el/10.1.8/tomcat-embed-el-10.1.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20180130/json-20180130.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/hateoas/spring-hateoas/2.0.4/spring-hateoas-2.0.4.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/micrometer/micrometer-commons/1.10.7/micrometer-commons-1.10.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.0.6/spring-data-commons-3.0.6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-constraint-drl/9.44.0.Final/optaplanner-constraint-drl-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-constraint-streams-drools/9.44.0.Final/optaplanner-constraint-streams-drools-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-data-rest/3.0.7/spring-boot-starter-data-rest-3.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/atteo/evo-inflector/1.3/evo-inflector-1.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-spring-boot-autoconfigure/9.44.0.Final/optaplanner-spring-boot-autoconfigure-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/jul-to-slf4j/2.0.7/jul-to-slf4j-2.0.7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/data/spring-data-rest-webmvc/4.0.6/spring-data-rest-webmvc-4.0.6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-constraint-streams-common/9.44.0.Final/optaplanner-constraint-streams-common-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-model-compiler/8.44.0.Final/drools-model-compiler-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-mvel-parser/8.44.0.Final/drools-mvel-parser-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.14.3/jackson-module-parameter-names-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/optaplanner/optaplanner-persistence-jackson/9.44.0.Final/optaplanner-persistence-jackson-9.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.14.3/jackson-datatype-jsr310-2.14.3.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/11/javafx-fxml-11-win.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/drools/drools-tms/8.44.0.Final/drools-tms-8.44.0.Final.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-websocket/6.0.9/spring-websocket-6.0.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/11/javafx-base-11-win.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-constraint-streams-common:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+      <element id="library" level="project" name="Maven: org.drools:drools-engine:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-drl-parser:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-drl-extensions:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.14.3" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-text:1.1" />
+      <element id="library" level="project" name="Maven: org.drools:drools-tms:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:3.0.7" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.0.9" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.7" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-math3:3.6.1" />
+      <element id="library" level="project" name="Maven: org.antlr:antlr-runtime:3.5.2" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-spring-boot-starter:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-util:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-canonical-model:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.0.9" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-websocket:6.0.9" />
+      <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:2.0.7" />
+      <element id="library" level="project" name="Maven: org.springframework.plugin:spring-plugin-core:3.0.0" />
+      <element id="library" level="project" name="Maven: org.kie:kie-internal:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.10.7" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:3.0.7" />
+      <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.2" />
+      <element id="library" level="project" name="Maven: org.kie:kie-api:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.atteo:evo-inflector:1.3" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-json:3.0.7" />
+      <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-to-slf4j:2.19.0" />
+      <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.4.7" />
+      <element id="library" level="project" name="Maven: org.drools:drools-model-codegen:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.latencyutils:LatencyUtils:2.0.3" />
+      <element id="library" level="project" name="Maven: net.minidev:json-smart:2.4.11" />
+      <element id="library" level="project" name="Maven: com.jayway.jsonpath:json-path:2.7.0" />
+      <element id="library" level="project" name="Maven: org.drools:drools-io:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+      <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.14.3" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.3" />
+      <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:10.1.8" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.0.9" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-spring-boot-autoconfigure:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-wiring-api:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:4.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:11" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:3.0.7" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:6.0.9" />
+      <element id="library" level="project" name="Maven: org.drools:drools-codegen-common:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-core-impl:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.kie:kie-memory-compiler:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.15" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-websocket:3.0.7" />
+      <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.33" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-context:6.0.9" />
+      <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.1.1" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.14.3" />
+      <element id="library" level="project" name="Maven: org.drools:drools-base:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:11" />
+      <element id="library" level="project" name="Maven: org.drools:drools-alphanetwork-compiler:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-constraint-streams-bavet:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.eclipse.angus:angus-activation:2.0.0" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.14.3" />
+      <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:10.1.8" />
+      <element id="library" level="project" name="Maven: org.drools:drools-mvel-compiler:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:3.0.7" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:11" />
+      <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:10.1.8" />
+      <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.2" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-persistence-jackson:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.ow2.asm:asm:9.3" />
+      <element id="library" level="project" name="Maven: org.drools:drools-core:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-constraint-drl:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:11" />
+      <element id="library" level="project" name="Maven: org.json:json:20180130" />
+      <element id="library" level="project" name="Maven: org.eclipse.jdt:ecj:3.33.0" />
+      <element id="library" level="project" name="Maven: org.drools:drools-compiler:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:3.0.7" />
+      <element id="library" level="project" name="Maven: org.drools:drools-kiesession:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.0.9" />
+      <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" />
+      <element id="library" level="project" name="Maven: org.springframework.hateoas:spring-hateoas:2.0.4" />
+      <element id="library" level="project" name="Maven: org.drools:drools-drl-ast:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:3.0.7" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-web:6.0.9" />
+      <element id="library" level="project" name="Maven: net.minidev:accessors-smart:2.4.11" />
+      <element id="library" level="project" name="Maven: org.drools:drools-commands:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:3.0.6" />
+      <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.1" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-persistence-common:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.14.3" />
+      <element id="library" level="project" name="Maven: org.drools:drools-wiring-static:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:11" />
+      <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-webmvc:4.0.6" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-core:6.0.9" />
+      <element id="library" level="project" name="Maven: com.opencsv:opencsv:4.1" />
+      <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.19.0" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-constraint-streams-drools:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:4.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:11" />
+      <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.4.7" />
+      <element id="library" level="project" name="Maven: org.springframework.data:spring-data-rest-core:4.0.6" />
+      <element id="library" level="project" name="Maven: org.drools:drools-ecj:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:4.0.0" />
+      <element id="library" level="project" name="Maven: org.kie:kie-util-maven-support:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:11" />
+      <element id="library" level="project" name="Maven: io.micrometer:micrometer-commons:1.10.7" />
+      <element id="library" level="project" name="Maven: com.github.javaparser:javaparser-core:3.24.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:11" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-expression:6.0.9" />
+      <element id="library" level="project" name="Maven: org.optaplanner:optaplanner-core:9.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.springframework:spring-messaging:6.0.9" />
+      <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.0.7" />
+      <element id="library" level="project" name="Maven: org.drools:drools-wiring-dynamic:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.drools:drools-model-compiler:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: io.micrometer:micrometer-observation:1.10.7" />
+      <element id="library" level="project" name="Maven: org.drools:drools-mvel-parser:8.44.0.Final" />
+      <element id="library" level="project" name="Maven: org.kie:kie-util-xml:8.44.0.Final" />
     </root>
   </artifact>
 </component>

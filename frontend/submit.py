@@ -3,8 +3,10 @@ from datamaker import makeData
 import time
 import json
 
+BASEURL = "http://159.75.205.159:20011"
+
 def launchTask(data):
-    url = "http://127.0.0.1:8080/cargo/solve/async"
+    url = BASEURL + "/cargo/solve/async"
     res = requests.post(url, json={
         "problem": data,
         "token": "FKkdfmiweo9fksF"
@@ -16,7 +18,7 @@ def launchTask(data):
     return problemId
 
 def querySolution(problemId):
-    url = "http://127.0.0.1:8080/cargo/get/solution"
+    url = BASEURL + "/cargo/get/solution"
     res = requests.post(url, json={
         "problemId": problemId,
         "token": "FKkdfmiweo9fksF"
@@ -27,7 +29,7 @@ def querySolution(problemId):
     return json.loads(res["message"])
 
 def stopTask(problemId):
-    url = "http://127.0.0.1:8080/cargo/solve/stop"
+    url = BASEURL + "/cargo/solve/stop"
     res = requests.post(url, json={
         "problemId": problemId,
         "token": "FKkdfmiweo9fksF"
@@ -38,7 +40,7 @@ def stopTask(problemId):
     return res["message"]
 
 if __name__ == "__main__":
-    problemId = launchTask(makeData(3, 3, 10))
+    problemId = launchTask(makeData(3, 3, 100))
     print("problemId =", problemId)
     try:
         print("start to solve problem")
